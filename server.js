@@ -31,6 +31,6 @@ const emailJob = async () => {
 }
 
 // every day at 530pm 30 17 * * *
-cron.schedule('30 17 * * *', emailJob)
+	cron.schedule('30 17 * * *', emailJob)
 
 app.listen(port, () => console.log(`Server running\nPort: ${port}`))
