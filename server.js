@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 const emailJob = async () => {
 	transporter.sendMail({
 		from: process.env.EMAIL,
-		to: process.env.EMAIL,
+		to: process.env.SEND_TO,
 		subject: 'You are awesome',
 		text: 'You did SUCH A GOOD JOB TODAY. CONGRATS!!!'
 	}, (err, info) => {
@@ -31,6 +31,6 @@ const emailJob = async () => {
 }
 
 // every day at 530pm 30 17 * * *
-cron.schedule('* * * * *', emailJob)
+cron.schedule('30 17 * * *', emailJob)
 
 app.listen(port, () => console.log(`Server running\nPort: ${port}`))
